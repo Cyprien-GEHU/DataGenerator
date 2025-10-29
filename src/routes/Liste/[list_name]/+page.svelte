@@ -81,7 +81,7 @@
         document.text("Aucun élément dans cette liste")
     } else {
         items.forEach((item, count) => {
-            document.text(`${count + 1}. ${item.text} - compteur : ${item.count}`, 10, axeY);
+            document.text(`-${item.text} x${item.count}`, 10, axeY);
             axeY += 10;
         });
     }
@@ -90,31 +90,55 @@
 
 </script>
 
-<header>
+<header class="p-2 bg-sky-200">
     <a href="/Liste">Retour</a>
 </header>
 
-<h2>La liste : {listName}</h2>
-
-<input bind:value={newItem} type="text" placeholder="Ajouter une élement "/>
-<button on:click={addItem}>Ajouter</button>
+<h1 class="text-4xl p-3 font-bold text-indigo-700 text-center">La liste : {listName}</h1>
+<div class="flex flex-col items-center gap-5 pt-3 pb-4
+md:flex-row md:pt-5 md:pl-3">
+  <input bind:value={newItem} type="text" placeholder="Ajouter une élement "
+   class="border-2 border-indigo-300 w-5/6 text-center focus:outline-none focus:border-indigo-700
+    md:w-2/6"/>
+  <button on:click={addItem} class="border-2 border-indigo-500 bg-indigo-200 rounded-2xl p-1
+          hover:bg-indigo-500 hover:shadow-xl w-9/10 md:p-0 md:w-1/6 lg:w-1/7">
+    Ajouter
+  </button>
+</div>
 
 {#if (items.length == 0)}
-    <p>il y pas d'élement dans votre liste</p>
-{:else if items.length > 0}
-    <p>il y a {items.length} élement dans votre liste</p>
+    <p class="text-center pt-5">il y pas d'élement dans votre liste</p>
+{:else if items.length == 1}
+    <p class="underline font-bold p-3">il y a {items.length} élement dans votre liste :</p>
+{:else if items.length > 1}
+    <p class="underline font-bold p-3">il y a {items.length} élements dans votre liste :</p>
+{/if}
 
 <ul>
   {#each items as item, i}
-    <li>
-        {item.text} 
-        <button on:click={() => decrement(i)}>-</button>
-        {item.count}
-        <button on:click={() => increment(i)}>+</button>
-      
+    <li class="flex flex-row justify-between m-3 p-3 gap-3 bg-indigo-300 rounded-2xl items-center
+    ">
+        <h2 class="font-bold">{item.text}</h2>
+        <div class="flex flex-row items-center gap-2">
+          <button on:click={() => decrement(i)}
+            class="border-2 border-indigo-500 bg-indigo-200 text-xl pl-1 pr-1
+          hover:bg-indigo-500 hover:shadow-xl text-center">
+            -
+          </button>
+          <p>{item.count}</p>
+          <button on:click={() => increment(i)}
+            class="border-2 border-indigo-500 bg-indigo-200 text-xl pl-0.5 pr-0.5
+          hover:bg-indigo-500 hover:shadow-xl text-center">
+            +
+          </button>
+        </div> 
     </li>
   {/each}
 </ul>
 
-<button on:click={PDF_Format}>Exporter en PDF</button>
+{#if (items.length > 0)}
+  <button on:click={PDF_Format} class="border-2 border-indigo-500 bg-indigo-200 rounded-2xl p-1
+  hover:bg-indigo-500 hover:shadow-xl w-9/10 md:p-0 md:w-1/6 lg:w-1/6">
+    Exporter en PDF
+  </button>
 {/if}
