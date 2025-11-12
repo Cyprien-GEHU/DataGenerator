@@ -7,9 +7,9 @@
   import { goto } from '$app/navigation';
 
   let newList = '';
-  let lists = {}; // toutes les listes
+  let lists = {};
 
-  // Charger les listes depuis le localStorage
+  // change the list from the localstorage
   onMount(() => {
     const stored = localStorage.getItem('lists');
     if (stored) {
@@ -17,7 +17,7 @@
     }
   });
 
-  // Créer une nouvelle liste
+  // add a new list
   function createList() {
     if (!newList || lists[newList]) return; // pas de doublon ou vide
     lists = { ...lists, [newList]: [] };
@@ -26,7 +26,7 @@
     newList = '';
   }
 
-  // Supprimer une liste
+  // delete a list
   function deleteList(name) {
     const confirmed = confirm(`Supprimer la liste "${name}" ?`);
     if (!confirmed) return;

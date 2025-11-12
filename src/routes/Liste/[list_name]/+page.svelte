@@ -72,7 +72,7 @@
     const document = new jsPDF();
 
     document.setFontSize(18);
-    document.text(`Liste : ${listName}`, 10, 15);
+    document.text(`${listName}:`, 10, 15);
 
     document.setFontSize(12);
     let axeY = 30;
