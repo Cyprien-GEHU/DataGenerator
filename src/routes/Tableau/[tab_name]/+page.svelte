@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
+  import * as XLSX from 'xlsx';
 
   let tabName = '';
   let Tables = {};
@@ -71,6 +72,14 @@
     localStorage.setItem('Tables', JSON.stringify(Tables));
     goto('/Tableau'); // ✅ retour vers /Tableau
   }
+
+  //export on exel
+  function exportToExcel() {
+    const ws = XLSX.utils.aoa_to_sheet(tableData); // convertir les données
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, tabName);
+    XLSX.writeFile(wb, `${tabName}.xlsx`); // déclenche le téléchargement
+  }
 </script>
 
 <!-- ✅ Header -->
@@ -96,6 +105,14 @@
   >
     ➕ Ajouter une colonne
   </button>
+
+  <button
+    on:click={exportToExcel}
+    class="border-2 border-green-500 bg-green-200 rounded-2xl p-2 hover:bg-green-500 hover:shadow-xl"
+  >
+    Exporter en Excel
+  </button>
+
   <button
     on:click={deleteThisTable}
     class="border-2 border-red-500 bg-red-200 rounded-2xl p-2 hover:bg-red-500 hover:shadow-xl"
