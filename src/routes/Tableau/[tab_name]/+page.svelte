@@ -70,15 +70,15 @@
     const { [tabName]: _, ...rest } = Tables;
     Tables = rest;
     localStorage.setItem('Tables', JSON.stringify(Tables));
-    goto('/Tableau'); // ✅ retour vers /Tableau
+    goto('/Tableau');
   }
 
   //export on exel
   function exportToExcel() {
-    const ws = XLSX.utils.aoa_to_sheet(tableData); // convertir les données
+    const ws = XLSX.utils.aoa_to_sheet(tableData);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, tabName);
-    XLSX.writeFile(wb, `${tabName}.xlsx`); // déclenche le téléchargement
+    XLSX.writeFile(wb, `${tabName}.xlsx`);
   }
 </script>
 

@@ -19,7 +19,7 @@
 
   // add a new list
   function createList() {
-    if (!newList || lists[newList]) return; // pas de doublon ou vide
+    if (!newList || lists[newList]) return;
     lists = { ...lists, [newList]: [] };
     localStorage.setItem('lists', JSON.stringify(lists));
     goto(`/Liste/${newList}`);
@@ -31,7 +31,7 @@
     const confirmed = confirm(`Supprimer la liste "${name}" ?`);
     if (!confirmed) return;
 
-    const { [name]: _, ...rest } = lists; // retirer la clé
+    const { [name]: _, ...rest } = lists;
     lists = rest;
     localStorage.setItem('lists', JSON.stringify(lists));
   }

@@ -1,10 +1,30 @@
-# Svelte library
+# DATAGENERATOR
+
+## 🎯 Project Goal
+This project aims to explore and learn **Svelte** by building a small data generator application.
+
+## 🚀 Project Status
+**Completed**
+
+## 🛠️ Technologies & Frameworks
+- **Svelte**
+- **TailWind**
+
+## ✨ Features
+- Generate dynamic lists and interact with them
+- Generate dynamic tables with basic manipulation features
+
+## Code Exemple
+## Code Example
+![code](https://raw.githubusercontent.com/Cyprien-GEHU/DATAGENERATOR/main/code.png)
+
+### Svelte library
 
 Everything you need to build a Svelte library, powered by [`sv`](https://npmjs.com/package/sv).
 
 Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
 
-## Creating a project
+### Creating a project
 
 If you're seeing this, you've probably already done this step. Congrats!
 
@@ -16,7 +36,7 @@ npx sv create
 npx sv create my-app
 ```
 
-## Developing
+### Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
@@ -29,7 +49,7 @@ npm run dev -- --open
 
 Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
 
-## Building
+### Building
 
 To build your library:
 
@@ -47,7 +67,7 @@ You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
 
-## Publishing
+### Publishing
 
 Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
 
@@ -56,3 +76,8 @@ To publish your library to [npm](https://www.npmjs.com):
 ```sh
 npm publish
 ```
+
+## contribute 
+[Cyprien GEHU](https://github.com/Cyprien-GEHU)
+
+MIT © Cyprien GEHU
