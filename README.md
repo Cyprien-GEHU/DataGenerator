@@ -14,7 +14,6 @@ This project aims to explore and learn **Svelte** by building a small data gener
 - Generate dynamic lists and interact with them
 - Generate dynamic tables with basic manipulation features
 
-## Code Exemple
 ## Code Example
 ![code](https://raw.githubusercontent.com/Cyprien-GEHU/DATAGENERATOR/main/code.png)
 
