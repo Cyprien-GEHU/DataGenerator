@@ -76,6 +76,8 @@ To publish your library to [npm](https://www.npmjs.com):
 npm publish
 ```
 
+publish with gh-pages
+
 ## contribute 
 [Cyprien GEHU](https://github.com/Cyprien-GEHU)
 
